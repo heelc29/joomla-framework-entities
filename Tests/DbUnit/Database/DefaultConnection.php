@@ -11,11 +11,11 @@
 
 namespace Joomla\Entity\Tests\DbUnit\Database;
 
-use PDO;
 use Joomla\Entity\Tests\DbUnit\Database\Metadata\AbstractMetadata;
 use Joomla\Entity\Tests\DbUnit\Database\Metadata\Metadata;
 use Joomla\Entity\Tests\DbUnit\DataSet\IDataSet;
 use Joomla\Entity\Tests\DbUnit\DataSet\QueryTable;
+use PDO;
 
 /**
  * Provides a basic interface for communicating with a database.
@@ -81,13 +81,13 @@ class DefaultConnection implements Connection
      * names are specified then it will created a dataset over the entire
      * database.
      *
-     * @param array $tableNames
+     * @param array|null $tableNames
      *
      * @return IDataSet
      *
      * @todo Implement the filtered data set.
      */
-    public function createDataSet(array $tableNames = null)
+    public function createDataSet(?array $tableNames = null)
     {
         if (empty($tableNames)) {
             return new DataSet($this);

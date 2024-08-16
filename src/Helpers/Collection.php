@@ -10,13 +10,13 @@
 namespace Joomla\Entity\Helpers;
 
 use ArrayAccess;
+use ArrayIterator;
 use Closure;
 use Countable;
-use Joomla\Entity\Exceptions\JsonEncodingException;
-use JsonSerializable;
 use IteratorAggregate;
-use ArrayIterator;
+use Joomla\Entity\Exceptions\JsonEncodingException;
 use Joomla\Entity\Model;
+use JsonSerializable;
 
 /**
  * Collection Helper class
@@ -241,7 +241,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
      * @param   Closure|null  $callback  callback function for sorting
      * @return static
      */
-    public function sort(Closure $callback = null)
+    public function sort(?Closure $callback = null)
     {
         $items = $this->items;
 
